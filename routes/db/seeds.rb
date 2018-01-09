@@ -15,15 +15,7 @@
   Category.create(name: "literary")
   Category.create(name: "art")
   Category.create(name: "political")
-
-counter = 1
-Item.all.each do |item|
-  item.category_id = counter
-  item.save
-  counter += 1
-end
-
-new_cart = Cart.new
+  Map.create(name: "historical map of nyc")
 
 User.create(:email => "email@email.com", :password => "123456789")
 

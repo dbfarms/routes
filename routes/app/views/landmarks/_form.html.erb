@@ -1,0 +1,12 @@
+<% #binding.pry %>
+
+<h3>Landmark Details</h3>
+
+<%= form_for @landmark, url: landmark_path do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    <%= f.label :history %>
+    <%= f.text_area :history %> 
+    <%= f.submit %>
+
+<% end %>

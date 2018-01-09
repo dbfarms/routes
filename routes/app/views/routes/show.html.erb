@@ -2,6 +2,7 @@
 <% #binding.pry%>
 <ul>
     <%= @route.landmarks.each do |landmark| %>
+    <% #binding.pry %>
         <li><%= link_to landmark.name, landmark_path(landmark) %></li>
     <% end %>
 </ul>

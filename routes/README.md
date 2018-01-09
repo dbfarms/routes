@@ -1,3 +1,22 @@
+# -scope 
+# - nested form writes to associated model
+# - nested resources / restful routes 
+# - display validation errors
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+
 # README
 
 This README would normally document whatever steps are necessary to get the

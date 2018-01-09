@@ -11,10 +11,25 @@ class RoutesController < ApplicationController
     end 
     
     def create 
-        #binding.pry
-        #"route"=>{"name"=>"best route in town", "id"=>"2", "landmark_ids"=>["", "1", "2", "3"]}
         @route = Route.create(route_params)
-        binding.pry
+        #binding.pry
+        @route.category = Category.find(params["route"]["id"])
+        @route.save
+        map = Map.find(params["route"]["map_id"])
+        redirect_to map_route_path(map.id, @route.id)
+    end 
+    
+    def edit 
+        set_route
+        @map = Map.find(params["map_id"])        
+    end 
+    
+    def update 
+        @route = Route.update(route_params)
+        @route.category = Category.find(params["route"]["id"])
+        @route.save
+        map = Map.find(params["route"]["map_id"])
+        redirect_to map_route_path(map.id, @route.id)
     end 
     
     
@@ -25,7 +40,7 @@ class RoutesController < ApplicationController
     end 
     
     def route_params
-        params.require(:route).permit(:name, :landmark)
+        params.require(:route).permit(:name, :landmark, :map_id)
     end 
     
 end 

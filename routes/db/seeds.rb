@@ -16,6 +16,9 @@
   Category.create(name: "art")
   Category.create(name: "political")
   Map.create(name: "historical map of nyc")
-
-User.create(:email => "email@email.com", :password => "123456789")
-
+  Map.create(name: "literary map of nyc")
+  Map.create(name: "political map of nyc")
+  Map.create(name: "pub crawl map of nyc")
+  
+User.create(:email => "email@email.com", :password => "123456")
+User.create(:email => "test@email.com", :password => "123456")

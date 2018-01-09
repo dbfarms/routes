@@ -1,11 +1,15 @@
-<% binding.pry %>
+<% #binding.pry %>
 
-<%= form_for @route do |f| %>
+<h3>Make your route</h3>
+
+<%= form_for @route, url: map_routes_path do |f| %>
     <%= f.label :name %>
-    <%= f.text_field :name %>
-    
-    
-    
+    <%= f.text_field :name %><br>
+    <%= f.label :category %>
+    <%= f.collection_select :id, Category.all, :id, :name, prompt: true %><br>
+    <%= f.label :landmarks %>
+    <%= f.collection_check_boxes :landmark_ids, Landmark.all, :id, :name %><br><br>
+    <%= field = "hidden" type=""
     <%= f.submit %>
 
 <% end %>

@@ -3,12 +3,12 @@
 <% if @map.routes %>
 <ul>
     <% @map.routes.each do |route| %>
-        <li><%= link_to route.name, route_path(route) %></li>
+        <li><%= link_to route.name, map_route_path(route) %></li>
     <% end %>
 </ul>
 
 <% end %>
 
-<label><%= link_to "Create New Route?", new_route_path %></label>
+<label><%= link_to "Create New Route?", new_map_route_path(@map) %></label>
 
 <br><br>

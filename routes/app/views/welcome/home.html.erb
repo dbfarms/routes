@@ -3,12 +3,14 @@
 <p>Signed in as <%=@user.email %> </p>
 
 <% #binding.pry %>
-<h2>Pick a map of a city to edit:</h2>
+<h2>Pick a map to edit:</h2>
 
- <%= form_tag maps_path do %>
-    <%=collection_select :map, :id, Map.all, :id, :name %>
-    <button type="submit" class="btn">Select Map</button>
- <% end %>
+ <ul>
+   <% @maps.each do |map| %>
+    <li><%= link_to map.name, map_path(map)%></li>
+   <% end %>
+ </ul>
+
  
  
  <br><br><br>

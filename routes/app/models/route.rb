@@ -1,5 +1,6 @@
 class Route < ApplicationRecord
-    has_many :landmarks 
+    has_many :landmark_routes
+    has_many :landmarks, through: :landmark_routes
     belongs_to :map 
-    belongs_to :category
+    has_one :category
 end

@@ -9,9 +9,12 @@ Rails.application.routes.draw do
   
   get 'maps', to: 'maps#index'
   
-  #get 'maps/:id/routes/:route_id', to: 'maps#route'
-  #resources :routes 
   resources :landmarks
+
+  devise_scope :user do
+    get 'login', to: 'devise/sessions#new'
+  end
   
   root 'welcome#home'
+  
 end

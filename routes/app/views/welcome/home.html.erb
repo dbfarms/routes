@@ -1,6 +1,8 @@
 <h1> Welcome to User Maps, where User Make Maps and Maps Have Routes and So On</h1>
 
-<p>Signed in as <%=@user.email %> </p>
+<% if current_user %>
+ <p>Signed in as <%=@user.email %> </p>
+
 
 <% #binding.pry %>
 <h2>Pick a map to edit:</h2>
@@ -11,6 +13,8 @@
    <% end %>
  </ul>
 
- 
+<% end %>
+
+
  
  <br><br><br>

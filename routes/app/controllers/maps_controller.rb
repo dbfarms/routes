@@ -1,4 +1,5 @@
 class MapsController < ApplicationController 
+    helper_method :params
     
     def index 
         @maps = Map.all 
@@ -6,6 +7,8 @@ class MapsController < ApplicationController
     
     def show
         set_map 
+        @rating
+       # binding.pry
     end 
     
     def create
@@ -28,8 +31,12 @@ class MapsController < ApplicationController
     private
     
     def set_map 
-        #binding.pry
-        @map = Map.find(params["id"])
+        if params["id"] == ":id"
+           @map = Map.find(params["map"])
+        else
+            @map = Map.find(params["id"])
+        end 
+        @rating = params["rating"] if params["rating"]
     end 
     
     def set_route

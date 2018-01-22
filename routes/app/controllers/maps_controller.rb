@@ -2,6 +2,8 @@ class MapsController < ApplicationController
     helper_method :params
     
     def index 
+        @categories = Category.all 
+        binding.pry
         @maps = Map.all 
     end 
     

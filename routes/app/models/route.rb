@@ -3,6 +3,7 @@ class Route < ApplicationRecord
     has_many :landmarks, through: :landmark_routes
     belongs_to :map 
     has_one :category
+    validates :name, presence: true 
     
     def push_landmarks(route, landmark_ids)
         landmark_ids.each do |lm|
@@ -11,8 +12,20 @@ class Route < ApplicationRecord
         end 
     end 
     
-    def highest_ranked 
+    def self.highest_ranked 
+        @routes = Route.all 
+        ordered_route = []
         
+        @routes.each do |route|
+            if route.rating != nil  
+                ordered_route << route 
+            end 
+        end 
+        
+        max = ordered_route.max_by{|e| e.rating}
+        @best_routes = ordered_route.find_all{|e| e.rating==max.rating}
+        
+        return @best_routes
     end 
     
 end

@@ -30,6 +30,15 @@
 
 <% end %>
 
+<% if Route.highest_ranked %>
+  <h3>The highest ranked route(s) for this map: </h3>
+  <ul>
+  <% Route.highest_ranked.each do |route| %>
+    <li><%= route.name %> </li>
+  <% end %>
+  </ul>
+<% end %>
+
 <label><%= link_to "Create New Route?", new_map_route_path(@map) %></label>
 
 <br><br>

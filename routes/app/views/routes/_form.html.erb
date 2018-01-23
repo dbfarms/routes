@@ -10,6 +10,7 @@
     <%= f.label :landmarks %>
     <%= f.collection_check_boxes :landmark_ids, Landmark.all, :id, :name %><br><br>
     <%= f.hidden_field :map_id, :value => @map.id %>
+    <%= f.hidden_field :route_id, :value => @route.id if @route.id %>
     
     <%= f.submit %>
 

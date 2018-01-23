@@ -4,6 +4,12 @@ class Route < ApplicationRecord
     belongs_to :map 
     has_one :category
     validates :name, presence: true 
+    validate :validate_landmark
+    
+    def validate_landmark
+        self.landmarks = self.landmarks.uniq
+        return self.landmarks
+    end 
     
     def push_landmarks(route, landmark_ids)
         landmark_ids.each do |lm|

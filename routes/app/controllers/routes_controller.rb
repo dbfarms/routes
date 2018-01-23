@@ -31,7 +31,7 @@ class RoutesController < ApplicationController
     end 
     
     def update 
-        #binding.pry
+        binding.pry
         @route = Route.find(params["route"]["id"])
         @route.update(route_params)
         @category = Category.find(params["route"]["id"]) 
@@ -52,7 +52,7 @@ class RoutesController < ApplicationController
     end 
     
     def route_params
-        params.require(:route).permit(:name, :landmark_ids, :map_id)
+        params.require(:route).permit(:name, :landmark_ids, :map_id, :route_id)
     end 
     
 end 

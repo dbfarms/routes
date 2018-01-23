@@ -5,11 +5,12 @@
 <%= form_for @route, url: map_route_path(@route.id, @map.id) do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name, placeholder: @route.name if @route.name %><br>
-    <%= f.label :category %>
-    <%= f.collection_select :id, Category.all, :id, :name, prompt: true %><br>
     <%= f.label :landmarks %>
     <%= f.collection_check_boxes :landmark_ids, Landmark.all, :id, :name %><br><br>
+    <%= f.label :rating %>
+    <%= select_tag :rating, options_for_select(["1", "2", "3", "4", "5"]), include_blank: true %><br>
     <%= f.hidden_field :map_id, :value => @map.id %>
+    <%= f.hidden_field :route_id, :value => @route.id if @route.id %>
     <%= f.submit %>
 
 <% end %>

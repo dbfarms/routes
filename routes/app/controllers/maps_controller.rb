@@ -3,7 +3,7 @@ class MapsController < ApplicationController
     
     def index 
         @categories = Category.all 
-        binding.pry
+        #binding.pry
         @maps = Map.all 
     end 
     

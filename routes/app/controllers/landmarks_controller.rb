@@ -11,8 +11,12 @@ class LandmarksController < ApplicationController
     def show 
         set_landmark
         @routes = Route.all
-        
     end
+
+    def edit 
+        set_landmark
+        
+    end 
     
     def create
         @landmark = Landmark.create(landmark_params)

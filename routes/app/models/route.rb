@@ -4,6 +4,7 @@ class Route < ApplicationRecord
     belongs_to :map 
     has_one :category
     validates :name, presence: true 
+    validates :name, uniqueness: true 
     validate :validate_landmark
     
     def validate_landmark

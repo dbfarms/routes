@@ -4,5 +4,7 @@
     <% @maps.each do |map| %>
         <li><%= link_to map.name, map_path(map) %></li>
     <% end %>
+    
+    <h3><%= link_to "Create new map", new_map_path%></h3>
 </ul>
 

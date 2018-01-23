@@ -13,9 +13,25 @@ class MapsController < ApplicationController
        # binding.pry
     end 
     
+    def new 
+        @map = Map.new 
+    end 
+    
     def create
-        @map = Map.find(params["map"]["id"])
+        binding.pry
+        @map = Map.create(map_params)
+        binding.pry
+        #@map = Map.find(params["map"]["id"])
         redirect_to map_path(@map) #binding.pry
+    end 
+    
+    def edit 
+        set_map 
+    end 
+    
+    def update
+        set_map 
+        @map.update()
     end 
     
     #def routes_index 
@@ -39,6 +55,10 @@ class MapsController < ApplicationController
             @map = Map.find(params["id"])
         end 
         @rating = params["rating"] if params["rating"]
+    end 
+    
+    def map_params 
+        params.require(:map).permit(:name)
     end 
     
     def set_route

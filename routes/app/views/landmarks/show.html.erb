@@ -1,9 +1,17 @@
-<h3><%= @landmark.name %></h3>
-<p><%= @landmark.history %></p>
+<h3>Name: <%= @landmark.name %></h3>
+<p>History: <%= @landmark.history %></p>
+
+<ul>
+<% if @landmark.routes %>
+    <% @landmark.routes.each do |route| %>
+        <li><%= route.name %></li>    
+    <% end %>
+<% end %>
+</ul>
+
 <br>
 
 <%= link_to "Edit landmark", edit_landmark_path(@landmark) %>
 
-<% #= link_to "Go back to Routes", %>
 
 <br>

@@ -18,6 +18,12 @@ class LandmarksController < ApplicationController
         
     end 
     
+    def update 
+        set_landmark
+        @landmark.update(landmark_params)
+        redirect_to landmark_path(@landmark)
+    end 
+    
     def create
         @landmark = Landmark.create(landmark_params)
         redirect_to landmark_path(@landmark)
@@ -30,7 +36,7 @@ class LandmarksController < ApplicationController
     end 
     
     def landmark_params
-        params.require(:landmark).permit(:name, :history)
+        params.require(:landmark).permit(:name, :history, :route_ids => [])
     end 
     
 end 

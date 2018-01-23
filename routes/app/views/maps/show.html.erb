@@ -29,8 +29,9 @@
 </ul>
 
 <% end %>
+<% #binding.pry %>
 
-<% if Route.highest_ranked %>
+<% if Route.highest_ranked[0].map_id == @map.id %>
   <h3>The highest ranked route(s) for this map: </h3>
   <ul>
   <% Route.highest_ranked.each do |route| %>

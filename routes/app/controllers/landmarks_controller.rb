@@ -29,6 +29,13 @@ class LandmarksController < ApplicationController
         redirect_to landmark_path(@landmark)
     end
     
+    def destroy
+        set_landmark
+        @landmark.destroy
+        redirect_to landmarks_path, notice: 'Route was successfully destroyed.'
+    end 
+    
+    
     private 
     
     def set_landmark

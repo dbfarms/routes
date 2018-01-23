@@ -1,9 +1,8 @@
 <% #binding.pry %>
 
 <h3>New Map</h3>
-
 <%= form_for @map, url: maps_path do |f| %>
-    <%= f.label :name %>
+    <%= f.label :name %><br>
     <%= f.text_field :name %><br>
     
     <%= f.submit %>

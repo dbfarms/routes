@@ -1,0 +1,11 @@
+<% #binding.pry %>
+
+<h3>Edit Map</h3>
+
+<%= form_for @map, url: map_path(@map) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, placeholder: @map.name %><br>
+    
+    <%= f.submit %>
+
+<% end %>

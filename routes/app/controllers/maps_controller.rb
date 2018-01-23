@@ -1,5 +1,6 @@
 class MapsController < ApplicationController 
     helper_method :params
+    before_action :set_map, only: [:show, :edit, :update, :destroy]
     
     def index 
         @categories = Category.all 
@@ -8,7 +9,6 @@ class MapsController < ApplicationController
     end 
     
     def show
-        set_map 
         @rating
        # binding.pry
     end 
@@ -26,13 +26,18 @@ class MapsController < ApplicationController
     end 
     
     def edit 
-        set_map 
     end 
     
     def update
-        set_map 
-        @map.update()
+        @map.update(map_params)
+        redirect_to map_path(@map)
     end 
+    
+    def destroy 
+        @map.destroy
+        redirect_to maps_url, notice: 'Map was successfully destroyed.' 
+    end
+
     
     #def routes_index 
     #    set_map

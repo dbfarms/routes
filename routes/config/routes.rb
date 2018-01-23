@@ -5,13 +5,14 @@ Rails.application.routes.draw do
   
   
   resources :maps do 
-    resources :routes #, only: [:show, :index]
+    resources :routes, except: [:delete] #, only: [:show, :index]
   end 
   
   get 'maps', to: 'maps#index'
   #get 'maps/new', to: 'maps#new'
   
   resources :landmarks
+  #resources :routes 
 
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'

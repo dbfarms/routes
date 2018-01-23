@@ -12,6 +12,6 @@
 <br>
 
 <%= link_to "Edit landmark", edit_landmark_path(@landmark) %>
-
+<label><%= link_to 'Delete Route?',landmark_path(@landmark), :confirm => "Are you sure you want to delete this attachment?", method: :delete %></label>
 
 <br>

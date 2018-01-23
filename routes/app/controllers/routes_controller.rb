@@ -14,10 +14,10 @@ class RoutesController < ApplicationController
     end 
     
     def create 
-        binding.pry
+        #binding.pry
         @route = Route.create(route_params)
         @route.save
-        @route.push_landmarks(@route, params["route"]["landmark_ids"])
+        #@route.push_landmarks(@route, params["route"]["landmark_ids"])
         
         map = Map.find(params["route"]["map_id"])
         redirect_to map_route_path(map.id, @route.id)
@@ -35,11 +35,17 @@ class RoutesController < ApplicationController
         
         @route.update(route_params)
         @route.rating = params["rating"]
-        @route.push_landmarks(@route, params["route"]["landmark_ids"])
+        #@route.push_landmarks(@route, params["route"]["landmark_ids"])
         @route.save
         map = Map.find(params["route"]["map_id"])
         redirect_to map_route_path(map.id, @route.id)
     end 
+    
+    def destroy
+        set_route
+        @route.destroy
+        redirect_to map_routes_path, notice: 'Route was successfully destroyed.' 
+    end
     
     
     private 

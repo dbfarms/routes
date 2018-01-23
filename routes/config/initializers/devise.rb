@@ -4,7 +4,9 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
     
-    config.omniauth :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET'], provider_ignores_state: true
+    config.omniauth :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET'] #, provider_ignores_state: true
+    config.omniauth :twitter, ENV['TWITTER_APP_ID'], ENV['TWITTER_APP_SECRET']
+    config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET']
   
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
